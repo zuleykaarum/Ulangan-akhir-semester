@@ -1,0 +1,108 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata - Starry Sky</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            background: black;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1, p {
+            margin: 5px 0;
+        }
+
+        /* Star animation */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+        }
+
+        /* Random star generation */
+        .stars .star:nth-child(odd) {
+            animation-delay: 0.5s;
+        }
+
+        .stars .star:nth-child(even) {
+            animation-delay: 1s;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: white;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.3);
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars">
+        <!-- Generate stars -->
+        <script>
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                document.querySelector('.stars').appendChild(star);
+            }
+        </script>
+    </div>
+
+    <h1>Biodata</h1>
+    <p><strong>Nama:</strong> Zuleyka Arum</p>
+    <p><strong>Kelas:</strong> XII TKJ 2</p>
+    <p><strong>Umur:</strong> 17 tahun</p>
+    <p><strong>Alamat:</strong> Jakarta Timur</p>
+    <p><strong>Hobi:</strong> ✨ Belajar</p>
+
+    <div class="social-icons">
+        <a href="#"><i>🔗</i></a>
+        <a href="#"><i>📧</i></a>
+        <a href="#"><i>📱</i></a>
+    </div>
+</body>
+</html>
